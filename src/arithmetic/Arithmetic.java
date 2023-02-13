@@ -6,6 +6,7 @@
 package arithmetic;
 
 
+import arithmetic.ArithmeticBase.Operation;
 import java.util.Scanner;
 import static java.time.Clock.system;
 
@@ -23,13 +24,18 @@ public class Arithmetic
      */
     public static void main(String[] args) 
     {
-       
-        ArithmeticBase r= new ArithmeticBase();
-        Scanner in= new Scanner(System.in);
-        int n= in.nextInt();
-        int m= in.nextInt();
-        double result = r.calculate(m,n);
-        System.out.println("result :" +result); 
+        Scanner in = new Scanner(System.in);
+        System.out.println("Enter two numbers:-");
+        
+        int n = in.nextInt();
+        int m = in.nextInt();
+        
+        System.out.println("Enter arithmetic operation:-");
+        String Operation = in.next();
+        Operation op = Operation.valueof(Operation.toUpperCase());
+         double result = op.apply(n, m);
+        
+        System.out.println("Result: " + result);       
     
     }
 }
